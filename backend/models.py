@@ -29,3 +29,22 @@ class Recipe(db.Model):
         self.description=description
 
         db.session.commit()        
+
+#user Model
+"""
+class User:
+    id:integer
+    firstName:string
+    lastName:string
+    email:string
+    password:string
+"""
+class User(db.Model):
+    id=db.Column(db.Integer(), primary_key=True)
+    firstName=db.Column(db.String(),nullable=False)
+    lastName=db.Column(db.String(),nullable=False)
+    email=db.Column(db.String(80),nullable=False,unique=True)
+    password=db.Column(db.Text(),nullable=False)
+
+    def __repr__(self):
+        return f"<User {self.firstName}>"
